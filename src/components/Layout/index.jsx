@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { bindActionCreators } from 'redux';
 
 import { fetchUser } from "../../actions/userActions";
 import { fetchTweets } from "../../actions/tweetsActions";
@@ -19,12 +20,12 @@ import { fetchTweets } from "../../actions/tweetsActions";
 export default class Layout extends React.Component {
   componentWillMount() {
     const { getUser } = this.props;
-    this.props.dispatch(getUser());
+    getUser();
   }
 
   fetchTweets() {
     const { getTweets } = this.props;
-    this.props.dispatch(getTweets());
+    getTweets();
   }
 
   render() {
